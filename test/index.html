@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script>
+        function showText() {
+
+            window.webkit.messageHandlers.finish.postMessage("trigger from JS");
+        }
+    </script>
+</head>
+
+<body>
+
+    <input type="button" onclick="showText()" value="Show Text and Trigger Handler">
+
+</body>
+
+</html>
