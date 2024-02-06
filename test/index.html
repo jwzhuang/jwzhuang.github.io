@@ -1,19 +1,27 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <script>
-        function showText() {
-
-            window.webkit.messageHandlers.finish.postMessage("trigger from JS");
-        }
-    </script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
 </head>
+<script>
+    isAppReady = false;
+    window.addEventListener("flutterInAppWebViewPlatformReady", function (event) {
+        isAppReady = true;
+    });
+
+    function buttonClick() {
+        if (isAppReady) {
+            window.flutter_inappwebview.callHandler('finish', 'result');
+        }
+    }
+</script>
 
 <body>
-
-    <input type="button" onclick="showText()" value="Show Text and Trigger Handler">
-
+    <button onclick="buttonClick()" type="button">Show</button>
 </body>
 
 </html>
